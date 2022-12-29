@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    overflow-x: hidden;
+    overflow-y: auto;    
+}
+
+.container h1{
+    margin-top: 5px;
+    text-align: center;
+}
+
+.container .main{
+    display: flex;
+    align-items: center;
+}
+
+.container .form-container{
+    width: 500px;
+    height: 500px;
+    margin: 20px auto;
+    background-color: #e4e4e4;
+    padding: 20px;   
+}
+
+.container .form-container .btn{
+    width: 25%;   
+}
+
+.container .view-container{
+    width: 500px;    
+    margin: 20px auto;
+    background-color: #e4e4e4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
