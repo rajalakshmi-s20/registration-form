@@ -8,7 +8,7 @@ const getData = () => {
     return JSON.parse(data);
   }
   else {
-    return []
+    return [];
   }
 }
 
@@ -25,12 +25,14 @@ export const App = () => {
 
   const setValue = (e) => {
     const value = e.target.value;
-    if(skills.includes(value)){
-    let newSkills = skills.filter((val) => val !== value);
-    setSkills([...newSkills]);
+    if(e.target.checked === true) {
+      setSkills([...skills,value]);
     }
-    else{
-    setSkills([...skills,value]);
+    else if(e.target.checked === false) {
+      let newSkills = skills.filter(val => {
+        return val !== value;
+      });
+      setSkills([...newSkills]);
     }
   };
  
@@ -60,7 +62,7 @@ export const App = () => {
   },[student] )
 
   return (
-    <div className="container">
+    <div className="contain">
       <h1>Student enrollment form</h1>
       <div className='main'>
       <div className='form-container'>
@@ -94,7 +96,7 @@ export const App = () => {
       </div>
       <br/>
       <div className='form-group row'>
-      <div className='col-sm-2'>Gender:</div>
+      <div className='col-sm-2'>Gender</div>
       <div className='col-sm-10'>
       <div className='form-check'>
       <input className='form-check-input' type="radio" name="gender" value="Female" id='female' onChange={(e) => setGender(e.target.value)}/>
@@ -108,7 +110,7 @@ export const App = () => {
       </div>
       <br/>
       <div className='form-group row'>
-      <div className='col-sm-2'>Skills:</div>
+      <div className='col-sm-2'>Skills</div>
       <div className='col-sm-10'>
       <div className='form-check'>
       <input className='form-check-input' type="checkbox" value="HTML" id='HTML' onChange={setValue}/>
@@ -130,7 +132,7 @@ export const App = () => {
       <div className='col-sm-10'>
       <input className='btn btn-success' type="submit" value="Enroll"/>
       <span> </span>
-      <input className='btn' type="reset" value="Clear"/>
+      <input className='btn btn-danger' type="reset" value="Clear"/>
       </div>
       </div>
       </form>
@@ -151,7 +153,7 @@ export const App = () => {
                 </tbody>
               </table>
             </div>
-            <button className='btn' onClick={ () => setStudent([])}>Remove All</button>
+            <button className='btn btn-danger' onClick={ () => setStudent([])}>Remove All</button>
         </>}
       {student.length < 1 && <div> Add records </div>}
       </div>

@@ -1,40 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
 *{
+    font-family: 'Sora', sans-serif;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.container{
-    overflow-x: hidden;
-    overflow-y: auto;    
+.contain{
+    background: linear-gradient(
+        90deg,
+        rgba(93, 12, 255, 1) 0%,
+        rgba(155, 0, 250, 1) 100%
+    );
 }
 
-.container h1{
-    margin-top: 5px;
+.contain h1{
     text-align: center;
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
 }
 
-.container .main{
+.contain .main{
     display: flex;
     align-items: center;
 }
 
-.container .form-container{
+.contain .form-container{
     width: 500px;
-    height: 500px;
-    margin: 20px auto;
-    background-color: #e4e4e4;
-    padding: 20px;   
+    height: 480px;
+    margin: 10px auto;
+    background: #e4e4e4;
+    padding: 10px;   
+    border-radius: 5px;
 }
 
-.container .form-container .btn{
+.contain .form-container .btn{
     width: 25%;   
 }
 
-.container .view-container{
-    width: 500px;    
-    margin: 20px auto;
-    background-color: #e4e4e4;
-    padding: 20px;
+.contain .view-container{
+    width: 600px;    
+    margin: 10px auto;
+    background: #e4e4e4;
+    padding: 10px;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
+}
+
+.form-control, .btn {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.delete{
+    color: red;
+}
+
+tbody{
+    margin-top: 25px;
 }
