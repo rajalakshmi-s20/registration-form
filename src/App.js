@@ -25,14 +25,12 @@ export const App = () => {
 
   const setValue = (e) => {
     const value = e.target.value;
-    if(e.target.checked === true) {
-      setSkills([...skills,value]);
+    if(skills.includes(value)){
+    let newSkills = skills.filter((val) => val !== value);
+    setSkills([...newSkills]);
     }
-    else if(e.target.checked === false) {
-      let newSkills = skills.filter(val => {
-        return val !== value;
-      });
-      setSkills([...newSkills]);
+    else{
+    setSkills([...skills,value]);
     }
   };
  
@@ -48,7 +46,20 @@ export const App = () => {
     setImage('');
     setGender('');
     setSkills([]);
+    resetForm();
   };
+
+  const resetForm = () => {
+    document.getElementById("HTML").checked=false;
+    document.getElementById("CSS").checked=false;
+    document.getElementById("JavaScript").checked=false;
+    document.getElementById("female").checked=false;
+    document.getElementById("male").checked=false;
+    document.getElementById("name").value="";
+    document.getElementById("email").value="";
+    document.getElementById("website").value="";
+    document.getElementById("image").value="";
+  }
 
   const deleteData = (name) => {
     const filtered = student.filter((element,index)=>{
@@ -66,7 +77,7 @@ export const App = () => {
       <h1>Student enrollment form</h1>
       <div className='main'>
       <div className='form-container'>
-      <form onSubmit={handleSubmit}>
+      <form id="myform" onSubmit={handleSubmit}>
       <div className='form-group row'>
       <label htmlFor='name' className='col-sm-2 col-form-label'>Name</label>
       <div className='col-sm-10'>
@@ -130,9 +141,9 @@ export const App = () => {
       <div className='form-group row'>
       <div className='col-sm-2'></div>
       <div className='col-sm-10'>
-      <input className='btn btn-success' type="submit" value="Enroll"/>
+      <button className='btn btn-success' type="submit">Enroll</button>
       <span> </span>
-      <input className='btn btn-danger' type="reset" value="Clear"/>
+      <button className='btn btn-danger' type="button" onClick={resetForm}>Clear</button>
       </div>
       </div>
       </form>
